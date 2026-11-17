@@ -1,32 +1,43 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# Tic-Tac-Toe
 
-Currently, two official plugins are available:
+A simple two-player Tic-Tac-Toe game built with **React** and **TypeScript**. Created to practice React fundamentals and state management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Two-player gameplay (X vs. O)
+- Automatic turn switching
+- Win detection (rows, columns, diagonals)
+- Draw detection
+- Disabled occupied squares
+- Reset game functionality
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies
 
-## Expanding the Oxlint configuration
+- **React** – UI components and state management
+- **TypeScript** – type safety
+- **Vite** – development and build tooling
+- **CSS** – styling and grid layout
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Getting Started
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+Make sure you have Node.js and npm installed.
+
+```bash
+git clone https://github.com/orestas-stelmokas/Tic-Tac-Toe-React.git
+cd Tic-Tac-Toe-React
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Open the local URL shown in your terminal.
+
+## What I Learned
+
+- Managing component state with `useState`
+- Updating arrays without directly mutating state
+- Handling user interactions with React events
+- Conditional rendering
+- Implementing game logic and win conditions
+
+---

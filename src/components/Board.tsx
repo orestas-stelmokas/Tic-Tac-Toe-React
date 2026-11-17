@@ -12,7 +12,7 @@ const winnningConditions = [
 ];
 
 export default function Board() {
-  const [currentPlayer, setCurrentPlayer] = useState(true);
+  const [currentPlayer, setCurrentPlayer] = useState("X");
   const [winner, setWinner] = useState("");
   const statusRef = useRef(null);
 
@@ -40,7 +40,7 @@ export default function Board() {
   const resetGame = () => {
     setBoard(["", "", "", "", "", "", "", "", ""]);
     setWinner("");
-    setCurrentPlayer(true);
+    setCurrentPlayer("X");
   };
 
   const checkWinner = (newBoard: string[]) => {
@@ -68,16 +68,15 @@ export default function Board() {
 
   const handlePlayersMove = (e: MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget;
-    const playerChar = currentPlayer ? "X" : "O";
     const newBoard = [...board];
-    newBoard[Number(target.value)] = playerChar;
+    newBoard[Number(target.value)] = currentPlayer;
     setBoard(newBoard);
     console.log(board);
     if (checkWinner(newBoard) != "") {
       setWinner(checkWinner(newBoard));
     }
 
-    setCurrentPlayer((prev) => !prev);
+    setCurrentPlayer((prev) => (prev === "X" ? "O" : "X"));
   };
 
   return (
@@ -87,7 +86,7 @@ export default function Board() {
         <p>{winner === "draw" ? "It's A Draw!" : `Winner: ${winner}`}</p>
       ) : (
         <p ref={statusRef}>
-          Next Player:<span> {currentPlayer ? "X" : "O"}</span>
+          Next Player:<span> {currentPlayer}</span>
         </p>
       )}
       <div className="grid">{getButtonsUsingForLoop(9)}</div>
